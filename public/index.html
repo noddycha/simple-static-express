@@ -4,12 +4,56 @@
     <title> Axyn Ubbo Dashboard </title>
     <script src='https://statics.teams.microsoft.com/sdk/v1.0/js/MicrosoftTeams.min.js'></script>
     <script src='https://code.jquery.com/jquery-1.11.3.min.js'></script>
-    <script src="/tab/tabConfig.js"></script>
+    <!-- <script src="/tab/tabConfig.js"></script> -->
+
+    <script type="text/javascript">
+      var microsoftTeams;
+
+      // Set up the tab and stuff.
+      $(document).ready(function () {
+        microsoftTeams.initialize();
+        // setValidity();
+        
+        // microsoftTeams.settings.registerOnSaveHandler(function (saveEvent) {
+        //   if(document.getElementById('auth-selector').value == "user-info") {
+        //     microsoftTeams.settings.setSettings({
+        //       suggestedDisplayName: "Axyn Silent Auth (User Info)",
+        //       contentUrl: createTabUrl("user-info"),
+        //       entityId: "AxynUbboUser",
+        //       websiteUrl: createTabUrl("user-info"),
+        //     });
+        //     saveEvent.notifySuccess();
+        //   } else {
+        //     microsoftTeams.settings.setSettings({
+        //       suggestedDisplayName: "Axyn Silent Auth (Access Token)",
+        //       contentUrl: createTabUrl("access-token"),
+        //       entityId: "AxynUbboUser",
+        //       websiteUrl: createTabUrl("access-token"),
+        //     });
+        //     saveEvent.notifySuccess();
+        //   }
+        // });
+      });
+
+      // function setValidity() {
+      //   microsoftTeams.settings.setValidityState(true);
+      // }
+
+      // function createTabUrl(context) {
+      //   if(context == "user-info") {
+      //     return window.location.protocol + "//" + window.location.host + "/default-user-info";
+      //   } else if (context == "access-token") {
+      //     return window.location.protocol + "//" + window.location.host + "/tab-auth/simple-start-v2";
+      //   } else {
+      //     return window.location.protocol + "//" + window.location.host + "/default";
+      //   }
+      // }
+    </script>
 </head>
 <body>
     <h3>Please select either of the Auth flows below:</h3> 
 
-    <select id="auth-selector" onchange="setValidity()">
+    <select id="auth-selector">
       <option value="user-info"> Axyn Silent Auth (User Info) </option>
       <option value="access-token"> Axyn Silent Auth (Access Token) </option>
     </select>
