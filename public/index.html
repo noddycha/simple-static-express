@@ -12,32 +12,22 @@
       // Set up the tab and stuff.
       $(document).ready(function () {
         microsoftTeams.initialize();
-        // setValidity();
+        setValidity();
         
-        // microsoftTeams.settings.registerOnSaveHandler(function (saveEvent) {
-        //   if(document.getElementById('auth-selector').value == "user-info") {
-        //     microsoftTeams.settings.setSettings({
-        //       suggestedDisplayName: "Axyn Silent Auth (User Info)",
-        //       contentUrl: createTabUrl("user-info"),
-        //       entityId: "AxynUbboUser",
-        //       websiteUrl: createTabUrl("user-info"),
-        //     });
-        //     saveEvent.notifySuccess();
-        //   } else {
-        //     microsoftTeams.settings.setSettings({
-        //       suggestedDisplayName: "Axyn Silent Auth (Access Token)",
-        //       contentUrl: createTabUrl("access-token"),
-        //       entityId: "AxynUbboUser",
-        //       websiteUrl: createTabUrl("access-token"),
-        //     });
-        //     saveEvent.notifySuccess();
-        //   }
-        // });
+        microsoftTeams.settings.registerOnSaveHandler(function (saveEvent) {
+          microsoftTeams.settings.setSettings({
+            suggestedDisplayName: "Login to Ubbo",
+            contentUrl: "https://teams.ubbo.io/users/sign_in",
+            entityId: "AxynUbboUser",
+            websiteUrl: "https://teams.ubbo.io/users/sign_in",
+          });
+          saveEvent.notifySuccess();
+        });
       });
 
-      // function setValidity() {
-      //   microsoftTeams.settings.setValidityState(true);
-      // }
+      function setValidity() {
+        microsoftTeams.settings.setValidityState(true);
+      }
 
       // function createTabUrl(context) {
       //   if(context == "user-info") {
@@ -51,12 +41,7 @@
     </script>
 </head>
 <body>
-    <h3>Please select either of the Auth flows below:</h3> 
-
-    <select id="auth-selector">
-      <option value="user-info"> Axyn Silent Auth (User Info) </option>
-      <option value="access-token"> Axyn Silent Auth (Access Token) </option>
-    </select>
+    <h3>Please click on save to proceed</h3>
 
     <!-- <button onclick="axynUserInfo()"> Axyn Silent Auth (User Info) </button>
     <button onclick="axynAccessToken()"> Axyn Silent Auth (Access Token) </button> -->
