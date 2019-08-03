@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Axyn Ubbo Dashboard </title>
+    <script src='https://statics.teams.microsoft.com/sdk/v1.0/js/MicrosoftTeams.min.js'></script>
+    <script src='https://code.jquery.com/jquery-1.11.3.min.js'></script>
+    <script src="/tab/tabConfig.js"></script>
+</head>
+<body>
+    <h3>Please select either of the Auth flows below:</h3> 
+
+    <select id="auth-selector" onchange="setValidity()">
+      <option value="user-info"> Axyn Silent Auth (User Info) </option>
+      <option value="access-token"> Axyn Silent Auth (Access Token) </option>
+    </select>
+
+    <!-- <button onclick="axynUserInfo()"> Axyn Silent Auth (User Info) </button>
+    <button onclick="axynAccessToken()"> Axyn Silent Auth (Access Token) </button> -->
+</body>   
+</html>
